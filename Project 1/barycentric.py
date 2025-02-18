@@ -1,8 +1,8 @@
 import numpy as np
 
 def get_barycentric_coordinates(triangle_coordinates: np.array, point_coordinates: np.array) -> np.array:
-     X1, X2, X3 = triangle_coordinates[:,0]
-     Y1, Y2, Y3 = triangle_coordinates[:,1]
+     X1, X2, X3 = triangle_coordinates[0]
+     Y1, Y2, Y3 = triangle_coordinates[1]
      PX, PY = point_coordinates
      area = (1/2)*((X1*(Y2-Y3))+(X2*(Y3-Y1))+(X3*(Y1-Y2)))
      bary_area_1 = (1/2)*((PX*(Y2-Y3))+(X2*(Y3-PY))+(X3*(PY-Y2)))
@@ -17,8 +17,8 @@ def get_barycentric_coordinates(triangle_coordinates: np.array, point_coordinate
     
 
 def get_cartesian_coordinates(triangle_coordinates: np.array, barycentric_coordinates: np.array) -> np.array:
-     X1, X2, X3 = triangle_coordinates[:,0]
-     Y1, Y2, Y3 = triangle_coordinates[:,1]
+     X1, X2, X3 = triangle_coordinates[0]
+     Y1, Y2, Y3 = triangle_coordinates[1]
      B1, B2, B3 = barycentric_coordinates
      x = (X1*B1) + (X2*B2) + (X3*B3) 
      y = (Y1*B1) + (Y2*B2) + (Y3*B3) 
@@ -27,8 +27,8 @@ def get_cartesian_coordinates(triangle_coordinates: np.array, barycentric_coordi
 
 
 def is_inside_triangle(triangle_coordinates: np.array, point_coordinates: np.array) -> bool:
-     X1, X2, X3 = triangle_coordinates[:,0]
-     Y1, Y2, Y3 = triangle_coordinates[:,1]
+     X1, X2, X3 = triangle_coordinates[0]
+     Y1, Y2, Y3 = triangle_coordinates[1]
      PX, PY = point_coordinates
      area = (1/2)*((X1*(Y2-Y3))+(X2*(Y3-Y1))+(X3*(Y1-Y2)))
      bary_area_1 = (1/2)*((PX*(Y2-Y3))+(X2*(Y3-PY))+(X3*(PY-Y2)))
