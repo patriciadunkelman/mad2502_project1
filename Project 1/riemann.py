@@ -15,6 +15,6 @@ def simpson(x_vals: np.array, func: np.ufunc):
     approx = 0
     n = len(x_vals) - 1
     for i in range(n):
-        area = ((i+1)-1)/6 * (func(x_vals[i]) ) # stopped here
+        area = (x_vals[i+1] - x_vals[i])/6 * (func(x_vals[i]) + func(x_vals[i+1]) + 4*(func((x_vals[i] + x_vals[i+1])/2)))
         approx += area
-
+    return approx
