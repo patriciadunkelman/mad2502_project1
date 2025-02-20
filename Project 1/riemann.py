@@ -12,5 +12,9 @@ def trapezoid(x_vals: np.array, func: np.ufunc):
     return 1
 
 def simpson(x_vals: np.array, func: np.ufunc):
-    return 1
+    approx = 0
+    n = len(x_vals) - 1
+    for i in range(n):
+        area = ((i+1)-1)/6 * (func(x_vals[i]) ) # stopped here
+        approx += area
 
