@@ -9,7 +9,13 @@ def left_endpoint(x_vals: np.array, func: np.ufunc):
     return approx
 
 def trapezoid(x_vals: np.array, func: np.ufunc):
-    return 1
+    i = 0
+    temp = [0]
+    while i < len(x_vals) - 1:
+        value = (func(x_vals[i]) + func(x_vals[i + 1]))/2 * (x_vals[i + 1] - x_vals[i])
+        temp += value
+        i += 1
+    return sum(temp)
 
 def simpson(x_vals: np.array, func: np.ufunc):
     approx = 0
