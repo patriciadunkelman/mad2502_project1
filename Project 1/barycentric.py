@@ -12,7 +12,6 @@ def get_barycentric_coordinates(triangle_coordinates: np.array, point_coordinate
      bary_area_3 = (1/2)*((X1*(Y2-PY))+(X2*(PY-Y1))+(PX*(Y1-Y2)))
      bary3 =bary_area_3/area
      bary_coords = np.array([bary1, bary2, bary3])
-
      return bary_coords
     
 
