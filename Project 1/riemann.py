@@ -17,7 +17,7 @@ def left_endpoint(x_vals: np.array, func: np.ufunc):
     Returns
     -------------
     float
-        The area of the Riemann approximation
+        The area of the final Riemann approximation
     """
     approx = 0      # Records our sum of areas
     n = len(x_vals)     # This value will be used for the range of our for loop
