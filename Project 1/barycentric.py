@@ -12,7 +12,7 @@ def get_barycentric_coordinates(triangle_coordinates: np.array, point_coordinate
      Parameters
     ----------
     triangle_coordinates : np.array
-    	The coordinates of the triangle. Its a 2x3 array where each column represents a vertex.
+    	The coordinates of the triangle. It's a 2x3 array where each column represents a vertex.
      point_coordinates : np.array 
     	The coordinates of the point.
     
@@ -65,7 +65,7 @@ def get_cartesian_coordinates(triangle_coordinates: np.array, barycentric_coordi
     Parameters
     ----------
     triangle_coordinates : np.array
-    	The coordinates of the triangle. Its a 2x3 array where each column represents 
+    	The coordinates of the triangle. It's a 2x3 array where each column represents
     	a vertex.
      barycentric_coordinates : np.array 
     	The barycentric coordinates of the point.

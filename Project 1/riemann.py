@@ -27,18 +27,54 @@ def left_endpoint(x_vals: np.array, func: np.ufunc):
     return approx
 
 def trapezoid(x_vals: np.array, func: np.ufunc):
-    i = 0
-    temp = [0]
-    while i < len(x_vals) - 1:
-        value = (func(x_vals[i]) + func(x_vals[i + 1]))/2 * (x_vals[i + 1] - x_vals[i])
-        temp += value
-        i += 1
-    return sum(temp)
+    """
+        This function approximates the Riemann integral of a function using the trapezoid method.
+
+        The values of the np.array given as x_vals provides the endpoints for our calculations. These x_vals are used to find the
+        area. The area between each endpoint is calcuated by the area of the trapezoid formed by (a,0), (b,0), (a, f(a)), and (b, f(b)).
+
+        Parameters
+        ------------
+        x_vals : np.array
+            Endpoints with which we compute the area of rectangles
+        func : np.ufunc
+            The function that x_vals are ran through to compute the height of the func at given x inputs
+
+        Returns
+        ------------
+        float
+            The area of the Riemann approximation
+        """
+    i = 0 # creates i
+    temp = [0] # creates the temp list
+    while i < len(x_vals) - 1: # runs for each value of x
+        value = (func(x_vals[i]) + func(x_vals[i + 1]))/2 * (x_vals[i + 1] - x_vals[i]) # calculates trapezoid area
+        temp += value # value to temp
+        i += 1 # iterates
+    return sum(temp) # sums the list temp
 
 def simpson(x_vals: np.array, func: np.ufunc):
-    approx = 0
+    """
+        This function approximates the Riemann integral of a function using the Simpson method.
+
+        The values of the np.array given as x_vals provides the endpoints for our calculations. These x_vals are used to find the
+        area. Simpson's method approximates with {b-a}{6}(f(a) + 4f{a+b}/{2}) + f(b)).
+
+        Parameters
+        ------------
+        x_vals : np.array
+            Endpoints with which we compute the area of rectangles
+        func : np.ufunc
+            The function that x_vals are ran through to compute the height of the func at given x inputs
+
+        Returns
+        ------------
+        float
+            The area of the Riemann approximation
+        """
+    approx = 0 # creates the approximation
     n = len(x_vals) - 1
-    for i in range(n):
-        area = (x_vals[i+1] - x_vals[i])/6 * (func(x_vals[i]) + func(x_vals[i+1]) + 4*(func((x_vals[i] + x_vals[i+1])/2)))
+    for i in range(n): # iterates for each section
+        area = (x_vals[i+1] - x_vals[i])/6 * (func(x_vals[i]) + func(x_vals[i+1]) + 4*(func((x_vals[i] + x_vals[i+1])/2))) # calculates area using simpson
         approx += area
     return approx
