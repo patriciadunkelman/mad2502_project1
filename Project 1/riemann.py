@@ -22,7 +22,7 @@ def left_endpoint(x_vals: np.array, func: np.ufunc):
     approx = 0      # Records our sum of areas
     n = len(x_vals)     # This value will be used for the range of our for loop
     for i in range(n-1):    # Range of n - 1 to ensure we don't index outside of the np.array
-        area = func(x_vals[i]) * (x_vals[i + 1] - x_vals[i])    # Area = Height(left endpoint) * Width(right endpoint - left endpoint)
+        area = func(x_vals[i]) * (x_vals[i + 1] - x_vals[i])    #Area = height(function output with left endpoint input) * width(right endpoint - left endpoint)
         approx += area  #   Add area to our approximation
     return approx
 
@@ -42,6 +42,3 @@ def simpson(x_vals: np.array, func: np.ufunc):
         area = (x_vals[i+1] - x_vals[i])/6 * (func(x_vals[i]) + func(x_vals[i+1]) + 4*(func((x_vals[i] + x_vals[i+1])/2)))
         approx += area
     return approx
-
-x_vals = np.linspace(0, np.pi, 10000)
-func = np.sin
