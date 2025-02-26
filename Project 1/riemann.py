@@ -8,16 +8,16 @@ def left_endpoint(x_vals: np.array, func: np.ufunc):
     area. The area between each left endpoint is summed together to find the Riemann approximation.
 
     Parameters
-    -------------
+    ------------
     x_vals : np.array
         Endpoints with which we compute the area of rectangles
     func : np.ufunc
         The function that x_vals are ran through to compute the height of the func at given x inputs
 
     Returns
-    -------------
+    ------------
     float
-        The area of the final Riemann approximation
+        The area of the Riemann approximation
     """
     approx = 0      # Records our sum of areas
     n = len(x_vals)     # This value will be used for the range of our for loop
